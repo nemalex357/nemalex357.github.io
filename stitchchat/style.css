@@ -1,0 +1,209 @@
+/* StitchChat — site styles. Passport: docs/design/brand.md («Аврора»). No scripts, no requests except Google Fonts. */
+:root {
+  --sky-0: #0B0E2B;
+  --sky-1: #171040;
+  --sky-2: #251357;
+  --ink: #F4F2FF;
+  --ink-2: rgba(228, 224, 255, .62);
+  --title: #FFFFFF;
+  --cream: #FFF4EE;
+  --cream-ink: #43217A;
+  --stitch: #FF48B0;
+  --glass: rgba(255, 255, 255, .09);
+  --glass-edge: rgba(255, 255, 255, .22);
+  --r-dock: 24px;
+  --r-button: 17px;
+  --gutter: 16px;
+  --measure: 42rem;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(178deg, var(--sky-0) 0%, var(--sky-1) 55%, var(--sky-2) 100%) fixed;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Aurora: blurred glows and film grain behind everything. Static — nothing animates. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20vh -20vw;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(38vw 30vh at 12% 8%,  rgba(45, 212, 191, .55), transparent 70%),
+    radial-gradient(44vw 36vh at 88% 14%, rgba(94, 84, 255, .55), transparent 70%),
+    radial-gradient(40vw 30vh at 70% 62%, rgba(150, 80, 255, .40), transparent 70%),
+    radial-gradient(34vw 28vh at 20% 78%, rgba(240, 80, 180, .32), transparent 70%),
+    radial-gradient(30vw 26vh at 55% 30%, rgba(70, 130, 255, .32), transparent 70%);
+  filter: blur(52px);
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
+
+a { color: var(--cream); text-decoration-color: rgba(255, 244, 238, .45); text-underline-offset: .18em; }
+a:hover { text-decoration-color: var(--cream); }
+a:focus-visible, .button:focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1, h2, h3, .wordmark {
+  font-family: "Unbounded", -apple-system, "SF Pro Display", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: var(--title);
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(1.6rem, 1.1rem + 2.6vw, 2.5rem); line-height: 1.15; margin: 0 0 .5em; }
+h2 { font-size: clamp(1.15rem, 1rem + 1vw, 1.5rem); line-height: 1.25; margin: 2.2em 0 .6em; }
+h3 { font-size: 1.05rem; line-height: 1.3; margin: 1.8em 0 .5em; }
+p, ul { margin: 0 0 1em; }
+ul { padding-left: 1.25em; }
+li { margin: .35em 0; }
+li::marker { color: var(--stitch); }
+code {
+  font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  font-size: .92em;
+  background: var(--glass);
+  border: 1px solid var(--glass-edge);
+  border-radius: 6px;
+  padding: .05em .35em;
+}
+strong { color: var(--title); }
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Header: wordmark with the stitch, navigation, language link. */
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  padding: 22px 0 10px;
+}
+.wordmark {
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--title);
+  position: relative;
+  padding-bottom: 6px;
+}
+.wordmark::after {
+  /* The stitch: a short dashed line in the patch colour — the only place fuchsia is used. */
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  border-top: 2px dashed var(--stitch);
+  opacity: .9;
+}
+.nav { display: flex; gap: 16px; flex-wrap: wrap; margin-left: auto; }
+.nav a { color: var(--ink-2); text-decoration: none; font-size: .95rem; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--title); }
+.nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--glass-edge); text-underline-offset: .3em; }
+.lang {
+  font-size: .85rem;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 6px 12px;
+  border: 1px solid var(--glass-edge);
+  background: var(--glass);
+  border-radius: 999px;
+}
+.lang:hover { color: var(--title); border-color: rgba(255, 255, 255, .4); }
+
+/* Content panel: glass under long small text (passport: no glow under text without glass). */
+.panel {
+  background: var(--glass);
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--r-dock);
+  padding: 22px 18px 26px;
+  margin: 18px 0 40px;
+  backdrop-filter: blur(22px) saturate(1.5);
+  -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  box-shadow: 0 24px 60px rgba(5, 4, 30, .45);
+}
+@media (min-width: 600px) { .panel { padding: 34px 36px 40px; } }
+.panel > :first-child { margin-top: 0; }
+.panel > :last-child { margin-bottom: 0; }
+
+.meta { color: var(--ink-2); font-size: .95rem; margin: -.25em 0 1.5em; }
+.lede { font-size: 1.15rem; line-height: 1.5; color: var(--ink); }
+
+/* Buttons: cream action, 54 pt, radius 17. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 26px;
+  border-radius: var(--r-button);
+  background: var(--cream);
+  color: var(--cream-ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .15s ease;
+}
+.button:active { transform: scale(.96); }
+.button.ghost {
+  background: var(--glass);
+  border: 1px solid var(--glass-edge);
+  color: var(--ink);
+}
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 1.6em 0 0; }
+
+/* Index page. */
+.hero { padding: 56px 0 24px; }
+.hero h1 { font-size: clamp(1.9rem, 1.2rem + 4vw, 3.2rem); margin-bottom: .45em; }
+.hero p { font-size: 1.15rem; max-width: 34rem; }
+.three { list-style: none; padding: 0; margin: 2.2em 0 0; display: grid; gap: 12px; }
+.three li {
+  margin: 0;
+  padding: 16px 18px;
+  background: var(--glass);
+  border: 1px solid var(--glass-edge);
+  border-radius: 18px;
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+}
+.three b { display: block; color: var(--title); margin-bottom: 2px; }
+.store { margin-top: 2.4em; color: var(--ink-2); font-size: .95rem; }
+.store .button { margin-right: 12px; }
+
+footer {
+  color: var(--ink-2);
+  font-size: .9rem;
+  padding: 10px 0 48px;
+}
+footer a { color: var(--ink); }
+footer p { margin: .35em 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .button { transition: none; }
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StitchChat Privacy Policy</title>
+<meta name="description" content="StitchChat privacy policy: screenshots never leave your phone, and the app collects no data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" hreflang="ru" href="privacy.ru.html">
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a class="wordmark" href="index.html">StitchChat</a>
+<nav class="nav" aria-label="Site"><a href="privacy.html" aria-current="page">Privacy</a><a href="support.html">Support</a></nav>
+<a class="lang" href="privacy.ru.html" lang="ru" title="Русская версия">RU</a>
+</header>
+<main>
+<h1>StitchChat Privacy Policy</h1>
+<p class="meta">Effective date: 14 October 2026</p>
+<article class="panel">
+<p>StitchChat is an iPhone app that stitches chat screenshots into one tall picture and, if you ask it to, covers personal details with opaque patches. This policy explains what happens to your screenshots. The short version: they never leave your phone, and we collect nothing.</p>
+<h2>What the app does</h2>
+<p>You pick a few screenshots of a conversation. The app lines them up, removes the repeated parts and the messenger's top and bottom bars, and gives you one picture. With "Hide personal details" on, it also finds names, avatars, phone numbers, email addresses, @usernames, links and faces and paints them over. You then send or save the result yourself.</p>
+<h2>Data we collect</h2>
+<p>None. StitchChat has no accounts, no analytics, no advertising, no tracking and no servers. The app makes no network connections at all — not to us and not to anyone else. We cannot see your screenshots, because they do not leave your phone.</p>
+<h2>Everything happens on your phone</h2>
+<p>Stitching and finding personal details run on your iPhone using Apple's on-device image and text recognition. Nothing is uploaded for processing.</p>
+<p>If a screenshot's original is stored in iCloud, the Photos app downloads it to your phone first. That is iOS doing its normal job; nothing reaches us.</p>
+<h2>Photos access</h2>
+<p>The app can only add finished pictures to Photos — it never sees your library. You choose the screenshots yourself in the system picker, and the app receives only the ones you picked. The picture is saved to Photos only when you choose to save it.</p>
+<h2>Share extension and the shared container</h2>
+<p>StitchChat adds a "StitchChat" action to the iOS share sheet, so you can start from Photos. The extension stitches the screenshots on your phone, just like the app.</p>
+<p>Sometimes the extension hands the work over to the app: when the set is too large for the extension's memory, when it is a single screenshot you want personal details hidden on, or when you tap "Open in StitchChat" on a seam warning. To do that, it saves copies of the selected screenshots as a job in a private shared folder on your phone that only StitchChat and its extension can read (an iOS "app group"). What is kept there and for how long:</p>
+<ul><li>The job itself (copies of your screenshots) stays until the app picks it up. On pickup the app moves the copies into its own storage and deletes the job from the shared folder. Anything half-written that is older than 24 hours is deleted automatically.</li><li>While the result is open in the app, the copies stay in the app's own storage. They are deleted when you close the result or start a new one.</li><li>To avoid importing the same set twice, the app keeps a short history of the last 50 jobs: only identifiers, dates and a fingerprint (a hash) of the files — no images and no text. A list of those fingerprints also lives in the shared folder so the extension can tell you "This set is already in StitchChat".</li></ul>
+<p>While you work, screenshots stay in the app's temporary folder on your phone.</p>
+<h2>Notifications</h2>
+<p>If the extension has saved a job and you have allowed notifications, it posts one local notification: "Job saved — tap to open StitchChat". It is created on your phone, not sent by us, and it never contains your screenshots or anything from them. Without your permission there are no notifications, and you can turn them off any time in iOS Settings.</p>
+<h2>What the app remembers</h2>
+<p>Three settings, stored on your phone: that you have already seen the tour, how you last chose to send a picture, and whether the app has already asked you about notifications. That is all.</p>
+<h2>Sending pictures and PDF metadata</h2>
+<p>A picture leaves your phone only when you send it yourself with Share. You can send it as one picture (PNG) or as an uncompressed file (a one-page PDF). The PDF carries two system details written by iOS: the iOS version and the file's creation date. No metadata from the original screenshots is carried over into either format.</p>
+<h2>Children</h2>
+<p>StitchChat is a general-purpose utility and is not directed at children. It is rated 4+ in the App Store because it contains nothing objectionable, not because it is made for kids. We collect no data from anyone, including children.</p>
+<h2>Changes to this policy</h2>
+<p>If the app starts doing something different with your data, this page will change and the effective date will be updated. The current version is always at https://nemalex357.github.io/stitchchat/privacy.html.</p>
+<h2>Contact</h2>
+<p>Questions about privacy: stitchchatapp@gmail.com</p>
+</article>
+</main>
+<footer><p>Questions: <a href="mailto:stitchchatapp@gmail.com">stitchchatapp@gmail.com</a></p><p>Everything in StitchChat runs on your phone. Nothing is uploaded.</p></footer>
+</div>
+</body>
+</html>
